@@ -19,7 +19,7 @@ function start_main_loop () {
 
     example.setup = function() {
 
-        for ( var i = 0; i < 200; i++ ) {  // slow particles
+        for ( var i = 0; i < 100; i++ ) {  // slow particles
             var particle = new Particle( Math.random() );
             var position = new Vector( random( 420,800 ), random( 0,800 ) );
             particle.setRadius( particle.mass * 10 );
@@ -29,12 +29,12 @@ function start_main_loop () {
             particle.behaviours.push(edges,collision,center_line)
             physics.particles.push( particle );
         }
-         for ( var i = 0; i < 200; i++ ) {  // fast particles
+         for ( var i = 0; i < 100; i++ ) {  // fast particles
             var particle = new Particle( Math.random() );
             var position = new Vector( random( 400 ), random( 800 ) );
             particle.setRadius( particle.mass * 10 );
             particle.moveTo( position );
-            particle.setVel( new Vector(random(-300,300),random(-300,300)));
+            particle.setVel( new Vector(random(-50,50),random(-50,50)));
             collision.pool.push( particle );
             particle.behaviours.push(edges,collision,center_line)
             physics.particles.push( particle );
@@ -85,7 +85,7 @@ function start_main_loop () {
     function toColor(num) {  // velocity  as red intensity
         var b = 0,
             g = 0,
-            r = parseInt(num*255.0/20000.0),
+            r = parseInt(num*255.0/500.0),
             a = 1 ;
         return "rgba(" + [r, g, b, a].join(",") + ")";
     }

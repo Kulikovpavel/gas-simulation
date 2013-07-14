@@ -710,8 +710,31 @@ Collision = (function(_super) {
           mt = p.mass + o.mass;
           r1 = this.useMass ? o.mass / mt : 0.5;
           r2 = this.useMass ? p.mass / mt : 0.5;
-		 // p.pos.add(this._delta.clone().norm().scale(overlap * -r1));
-         // o.pos.add(this._delta.norm().scale(overlap * r2));
+          
+          
+       /*    // resolve intersection --
+		  // inverse mass quantities
+		  var im1 = 1. / o.mass; 
+		  var im2 = 1. / p.mass;
+		  var impact_v = (o.vel.clone().sub(p.vel));
+		  
+		  var mtd = this._delta.clone().scale((overlap-0.5)/dist); 
+		  var vn = o.vel.clone().dot(mtd.norm());
+		 //if (vn > 0.0) {
+			//_results.push(void 0);
+			//continue;
+		  //};
+		  // collision impulse
+		  var i_scale = (-1.0 * vn) / (im1 + im2);
+		  var impulse = mtd.clone().scale(i_scale);
+		  
+		  // change in momentum
+		  o.vel.add(impulse.clone().scale(im1));
+		  p.vel.sub(impulse.clone().scale(im2)); */
+		    
+    
+		  //p.pos.add(this._delta.clone().norm().scale(overlap * -r1));
+          //o.pos.add(this._delta.norm().scale(overlap * r2));
           p.vel.add(this._delta.clone().norm().scale(overlap * -r1));
           o.vel.add(this._delta.norm().scale(overlap * r2));
 		  //console.log("COLLIDE!");
